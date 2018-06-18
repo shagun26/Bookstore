@@ -1,3 +1,31 @@
+// UC M3: Add a review for the book
+function validateReviewText() {
+	var ok = true;
+	if(document.getElementById("reviewText").value == '') {
+		alert("Please enter a review with 1-800 characters.");
+		ok = false;
+	}
+	return ok;
+}
+
+// UC M4: Search (text) for a book title in the store 
+function searchText() {
+    var input, filter, bookDiv, columns, ele, i;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    bookDiv = document.getElementById('bookDiv');
+    columns = bookDiv.getElementsByClassName('columns');
+
+    for (i = 0; i < columns.length; i++) {
+        ele = columns[i].getElementsByClassName("header")[0];
+        if (ele.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        	columns[i].style.display = "";
+        } else {
+        	columns[i].style.display = "none";
+        }
+    }
+}
+
 function loginUser(address) {
 	var ok = true;
 	var user = document.getElementById("username").value;
